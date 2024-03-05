@@ -1,43 +1,42 @@
 .header {
-    background-color: var(--header-bg-color);
-    height: 12vh;
-    display: flex;
-    justify-content: space-between;
-    padding: 2vh 1vw;
-  }
-  
-  .marvelLogo {
-    height: 100%;
-  }
-  
-  .navContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  
-    a {
-      margin: 0 2vw 0 0;
-      text-decoration: none;
-      font-size: 1.125rem;
-      font-weight: bold;
-      color: var(--nav-link-color);
-      position: relative;
-  
-      &::after {
-        position: absolute;
-        background-color: var(--nav-link-color);
-        left: 0;
-        bottom: -1px;
-        width: 0;
-        height: 1px;
-        content: '';
-        transition: width 0.25s ease-out;
-      }
-  
-      &:hover::after {
-        width: 100%;
-      }
+  background-color: var(--header-bg-color);
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 1vw;
+}
+
+.marvelLogo {
+  height: 100%;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  a {
+    margin: 0 2vw 0 0;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--nav-link-color);
+    position: relative;
+
+    &::after {
+      position: absolute;
+      background-color: var(--nav-link-color);
+      left: 0;
+      bottom: -1px;
+      width: 0;
+      height: 1px;
+      content: '';
+      transition: width 0.25s ease-out;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
-  
+}
