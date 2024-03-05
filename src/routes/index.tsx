@@ -1,6 +1,6 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, type RouteObject } from 'react-router-dom';
 
-const appRoutes = [
+const appRoutes: RouteObject[] = [
   { index: true, element: <Navigate to="characters" /> },
   { path: 'characters', element: <div>Characters</div> },
   { path: 'comics', element: <div>Comics</div> },
