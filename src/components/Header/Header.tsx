@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import strings from '../../resources';
 import classes from './Header.module.css';
 
@@ -14,8 +14,18 @@ const Header: FC = () => {
         />
       </Link>
       <nav className={classes.navContainer}>
-        <Link to="/characters">Characters</Link>
-        <Link to="/comics">Comics</Link>
+        <NavLink
+          className={({ isActive }) => (isActive ? classes.active : '')}
+          to="/characters"
+        >
+          Characters
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? classes.active : '')}
+          to="/comics"
+        >
+          Comics
+        </NavLink>
       </nav>
     </header>
   );

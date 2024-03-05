@@ -38,5 +38,14 @@
     &:hover::after {
       width: 100%;
     }
+
+    &.active {
+      color: var(--active-nav-link-color);
+
+      &::after {
+        background-color: var(--active-nav-link-color);
+        width: 100%;
+      }
+    }
   }
 }
