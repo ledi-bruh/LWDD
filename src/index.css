@@ -3,7 +3,10 @@
 :root {
   --body-bg-color: #fff;
   --header-bg-color: #ed1a3b;
+  --footer-bg-color: #555555;
+
   --nav-link-color: #ffbe46;
+  --footer-text-color: #fff;
 }
 
 * {
