@@ -4,6 +4,10 @@ import strings from '../../resources';
 import classes from './Footer.module.css';
 
 const Footer: FC = () => {
+  function getYear() {
+    return new Date().getFullYear();
+  }
+
   return (
     <footer className={classes.footer}>
       <div className={classes.column}>
@@ -14,8 +18,8 @@ const Footer: FC = () => {
             className={classes.marvelLogo}
           />
         </Link>
-        <p>Data provided by Marvel. © 2024 MARVEL</p>
-        <p>toxicpandas.ru</p>
+        <p>Data provided by Marvel. © {getYear()} MARVEL</p>
+        <p>developer.marvel.com</p>
       </div>
     </footer>
   );
