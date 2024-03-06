@@ -10,9 +10,15 @@ const App: FC = () => {
       path: '/',
       element: (
         <>
-          <Header />
-          <Outlet />
-          <Footer />
+          <header>
+            <Header />
+          </header>
+          <main>
+            <Outlet />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
         </>
       ),
       children: appRoutes

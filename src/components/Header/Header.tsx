@@ -5,7 +5,7 @@ import classes from './Header.module.css';
 
 const Header: FC = () => {
   return (
-    <header className={classes.header}>
+    <div className={classes.header}>
       <Link to="/">
         <img
           src={strings.marvelLogo}
@@ -27,7 +27,7 @@ const Header: FC = () => {
           Comics
         </NavLink>
       </nav>
-    </header>
+    </div>
   );
 };
 

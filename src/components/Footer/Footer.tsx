@@ -4,12 +4,12 @@ import strings from '../../resources';
 import classes from './Footer.module.css';
 
 const Footer: FC = () => {
-  function getYear() {
+  const getYear = () => {
     return new Date().getFullYear();
-  }
+  };
 
   return (
-    <footer className={classes.footer}>
+    <div className={classes.footer}>
       <div className={classes.column}>
         <Link to="/">
           <img
@@ -18,10 +18,10 @@ const Footer: FC = () => {
             className={classes.marvelLogo}
           />
         </Link>
-        <p>Data provided by Marvel. © {getYear()} MARVEL</p>
+        <p>Data provided by Marvel. &copy; {getYear()} MARVEL</p>
         <p>developer.marvel.com</p>
       </div>
-    </footer>
+    </div>
   );
 };
 
