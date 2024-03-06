@@ -1,0 +1,53 @@
+.characterDetailSection {
+  display: flex;
+  flex-direction: column;
+
+  .characterPreviewContainer {
+    height: 50vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  .characterContent {
+    display: flex;
+    flex-direction: row;
+    margin: 2vh 2vw;
+
+    .characterInfo {
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+
+      > h2 {
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      > p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .characterComics {
+      display: flex;
+      flex-direction: column;
+
+      > h3 {
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-bottom: 1vh;
+      }
+
+      > a {
+        text-decoration: none;
+      }
+    }
+  }
+}
