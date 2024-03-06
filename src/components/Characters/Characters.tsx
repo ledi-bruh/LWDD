@@ -1,22 +1,23 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import clsx from 'clsx';
 import classes from './Characters.module.css';
+import clsx from 'clsx';
 import { Card } from '../../types';
+import { charactersMock } from 'components/mock';
 
 const Characters: FC = () => {
   const navigate = useNavigate();
-  const characters: Card[] = Array.from({ length: 10 }, (_, i) => {
-    return {
-      id: `${i + 1}`,
-      image: '/src/assets/clean.jpg',
-      title: 'The Noname',
-      description: 'No description provided'
-    };
-  });
+  const [characters, setCharacters] = useState([] as Card[]);
+
+  useEffect(() => {
+    const data: Card[] = Object.keys(charactersMock).map(
+      (key) => charactersMock[key]
+    );
+    setCharacters(data);
+  }, []);
 
   const handleCharacterCardClick = (card: Card) => {
-    return navigate(`${card.id}`, {
+    return navigate(`/characters/${card.id}`, {
       replace: true,
       state: { card: card }
     });
