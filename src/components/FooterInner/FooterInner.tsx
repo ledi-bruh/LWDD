@@ -1,15 +1,15 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import strings from '../../resources';
-import classes from './Footer.module.css';
+import classes from './FooterInner.module.css';
 
-const Footer: FC = () => {
+const FooterInner: FC = () => {
   const getYear = () => {
     return new Date().getFullYear();
   };
 
   return (
-    <div className={classes.footer}>
+    <div className={classes.footerInner}>
       <div className={classes.column}>
         <Link to="/">
           <img
@@ -25,4 +25,4 @@ const Footer: FC = () => {
   );
 };
 
-export default Footer;
+export default FooterInner;

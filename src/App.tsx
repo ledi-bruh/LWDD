@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Outlet, useRoutes } from 'react-router-dom';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import HeaderInner from 'components/HeaderInner';
+import FooterInner from 'components/FooterInner';
 import appRoutes from 'routes';
 
 const App: FC = () => {
@@ -11,13 +11,13 @@ const App: FC = () => {
       element: (
         <>
           <header>
-            <Header />
+            <HeaderInner />
           </header>
           <main>
             <Outlet />
           </main>
           <footer>
-            <Footer />
+            <FooterInner />
           </footer>
         </>
       ),

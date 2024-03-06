@@ -1,4 +1,4 @@
-.header {
+.headerInner {
   background-color: var(--header-bg-color);
   height: 8vh;
   display: flex;

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import strings from '../../resources';
-import classes from './Header.module.css';
+import classes from './HeaderInner.module.css';
 
-const Header: FC = () => {
+const HeaderInner: FC = () => {
   return (
-    <div className={classes.header}>
+    <div className={classes.headerInner}>
       <Link to="/">
         <img
           src={strings.marvelLogo}
@@ -31,4 +31,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header;
+export default HeaderInner;
