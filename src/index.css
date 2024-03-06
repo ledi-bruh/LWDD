@@ -4,10 +4,19 @@
   --body-bg-color: #fff;
   --header-bg-color: #ed1a3b;
   --footer-bg-color: #555555;
+  --characters-search-bg-color: #efad4d;
 
   --nav-link-color: #ffbe46;
   --active-nav-link-color: #fff646;
   --footer-text-color: #fff;
+  --characters-section-title-text-color: #353535;
+  --characters-count-text-color: #797979;
+  --characters-search-input-text-color: #9a9a9a;
+  --characters-search-text-color: #fff;
+  --characters-search-input-border-color: #cfcfcf;
+  --characters-hr-color: #f2f2f2;
+  --character-card-title-color: #b5384d;
+  --character-card-description-color: #9f9f9f;
 }
 
 * {
