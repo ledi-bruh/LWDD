@@ -53,7 +53,7 @@ const CartDetail: FC<ICartDetailProps> = ({
             <Link
               key={index}
               to={`${subCardsUrl}/${_subCard.id}`}
-              replace={true}
+              replace={false}
             >
               {_subCard.title}
             </Link>
