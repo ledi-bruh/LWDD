@@ -13,7 +13,7 @@ interface ICardSearchProps {
 const CardSearch: FC<ICardSearchProps> = ({ title, baseUrl }) => {
   const navigate = useNavigate();
   const [cards, setCards] = useState([] as Card[]);
-  const [cardsCount, setCardsCount] = useState(0);
+  const cardsCount = cards.length;
 
   useEffect(() => {
     let data: Card[] = [];
@@ -27,7 +27,6 @@ const CardSearch: FC<ICardSearchProps> = ({ title, baseUrl }) => {
     }
 
     setCards(data);
-    setCardsCount(1562);
   }, [baseUrl]);
 
   const handleCardClick = (card: Card) => {
