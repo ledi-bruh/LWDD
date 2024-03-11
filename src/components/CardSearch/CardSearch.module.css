@@ -1,12 +1,9 @@
 .cardsSection {
   margin: 2vh 2vw;
 
-  .row {
+  .sectionHeader {
     display: flex;
     flex-direction: row;
-  }
-
-  .sectionHeader {
     align-items: baseline;
 
     > h2 {

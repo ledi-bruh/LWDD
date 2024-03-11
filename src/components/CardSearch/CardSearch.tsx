@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classes from './CardSearch.module.css';
-import clsx from 'clsx';
 import { Card } from '../../types';
 import { charactersMock, comicsMock } from 'components/mock';
 import Search from 'components/Search/Search';
@@ -40,7 +39,7 @@ const CardSearch: FC<ICardSearchProps> = ({ title, baseUrl }) => {
 
   return (
     <section className={classes.cardsSection}>
-      <div className={clsx(classes.row, classes.sectionHeader)}>
+      <div className={classes.sectionHeader}>
         <h2>{title}</h2>
         <p>({cardsCount})</p>
       </div>
