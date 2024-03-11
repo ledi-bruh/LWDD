@@ -1,9 +1,9 @@
 import { Navigate, type RouteObject } from 'react-router-dom';
-import Characters from 'components/Characters';
-import CharacterDetail from 'components/CharacterDetail';
-import NotFound from 'components/NotFound';
-import Comics from 'components/Comics';
-import ComicsDetail from 'components/ComicsDetail';
+import Characters from 'routes/Characters';
+import CharacterDetail from 'routes/CharacterDetail';
+import NotFound from 'routes/NotFound';
+import Comics from 'routes/Comics';
+import ComicsDetail from 'routes/ComicsDetail';
 import HeaderInner from 'components/HeaderInner';
 import FooterInner from 'components/FooterInner';
 import { Outlet } from 'react-router-dom';
