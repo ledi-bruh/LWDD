@@ -4,6 +4,7 @@ import classes from './CardSearch.module.css';
 import clsx from 'clsx';
 import { Card } from '../../types';
 import { charactersMock, comicsMock } from 'components/mock';
+import Search from 'components/Search/Search';
 
 interface ICardSearchProps {
   title: string;
@@ -42,10 +43,10 @@ const CardSearch: FC<ICardSearchProps> = ({ title, baseUrl }) => {
         <h2>{title}</h2>
         <p>({cardsCount})</p>
       </div>
-      <div className={clsx(classes.row, classes.searchContainer)}>
-        <input placeholder={`Search for ${title} by Name`}></input>
-        <button>SEARCH</button>
-      </div>
+      <Search
+        buttonText={'SEARCH'}
+        placeholder={`Search for ${title} by Name`}
+      />
       <hr />
       <div className={classes.cardsContainer}>
         {cards.map((_card, index) => (

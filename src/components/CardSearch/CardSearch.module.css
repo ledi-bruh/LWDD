@@ -21,37 +21,6 @@
     }
   }
 
-  .searchContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 1vh 0 0;
-
-    > input {
-      width: 100%;
-      padding: 1vh 1vw;
-      font-weight: 500;
-      color: var(--cards-search-input-text-color);
-      border: 1px solid var(--cards-search-input-border-color);
-      outline: none;
-    }
-
-    > button {
-      margin-left: 2vw;
-      width: 20%;
-      font-weight: 500;
-      color: var(--cards-search-text-color);
-      background-color: var(--cards-search-bg-color);
-      border: none;
-      cursor: pointer;
-
-      &:active {
-        scale: 1.01;
-        transition: 0.2s all ease-out;
-      }
-    }
-  }
-
   > hr {
     margin: 4vh 0;
     opacity: 15%;
