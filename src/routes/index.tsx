@@ -1,10 +1,10 @@
 import { Navigate, type RouteObject } from 'react-router-dom';
 import Layout from './Layout';
-import Characters from 'routes/Characters';
-import CharacterDetail from 'routes/CharacterDetail';
-import NotFound from 'routes/NotFound';
-import Comics from 'routes/Comics';
-import ComicsDetail from 'routes/ComicsDetail';
+import Characters from './Characters';
+import CharacterDetail from './CharacterDetail';
+import NotFound from './NotFound';
+import Comics from './Comics';
+import ComicsDetail from './ComicsDetail';
 
 const appRoutes: RouteObject[] = [
   {
