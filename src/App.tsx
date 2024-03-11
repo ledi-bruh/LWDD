@@ -1,29 +1,9 @@
 import { FC } from 'react';
-import { Outlet, useRoutes } from 'react-router-dom';
-import HeaderInner from 'components/HeaderInner';
-import FooterInner from 'components/FooterInner';
+import { useRoutes } from 'react-router-dom';
 import appRoutes from 'routes';
 
 const App: FC = () => {
-  const element = useRoutes([
-    {
-      path: '/',
-      element: (
-        <>
-          <header>
-            <HeaderInner />
-          </header>
-          <main>
-            <Outlet />
-          </main>
-          <footer>
-            <FooterInner />
-          </footer>
-        </>
-      ),
-      children: appRoutes
-    }
-  ]);
+  const element = useRoutes(appRoutes);
 
   return element;
 };
