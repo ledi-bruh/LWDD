@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { Card } from '../../types';
 import { charactersMock, comicsMock } from 'components/mock';
 import Search from 'components/Search/Search';
+import CardList from 'components/CardList';
 
 interface ICardSearchProps {
   title: string;
@@ -48,23 +49,7 @@ const CardSearch: FC<ICardSearchProps> = ({ title, baseUrl }) => {
         placeholder={`Search for ${title} by Name`}
       />
       <hr />
-      <div className={classes.cardsContainer}>
-        {cards.map((_card, index) => (
-          <div
-            key={index}
-            className={classes.card}
-            onClick={() => handleCardClick(_card)}
-          >
-            <div className={classes.cardImageContainer}>
-              <img src={_card.image} alt="cardImage"></img>
-            </div>
-            <div className={classes.cardInfo}>
-              <h3>{_card.title}</h3>
-              <p>{_card.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <CardList cards={cards} handleCardClick={handleCardClick} />
     </section>
   );
 };

@@ -25,48 +25,4 @@
     margin: 4vh 0;
     opacity: 15%;
   }
-
-  .cardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-
-    .card {
-      border: 1px solid;
-      width: 15%;
-      aspect-ratio: 1 / 1.1;
-      cursor: pointer;
-
-      .cardImageContainer {
-        height: 65%;
-        border: 1px solid;
-
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-
-        > img {
-          min-width: 100%;
-          min-height: 100%;
-        }
-      }
-
-      .cardInfo {
-        padding: 2% 3%;
-
-        > h3 {
-          color: var(--card-title-color);
-          font-weight: bold;
-          font-size: 1rem;
-        }
-
-        > p {
-          color: var(--card-description-color);
-          font-size: 0.6rem;
-        }
-      }
-    }
-  }
 }
