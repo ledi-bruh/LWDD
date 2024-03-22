@@ -5,7 +5,22 @@ const instance = axios.create({
   baseURL: envs.baseApiUrl
 });
 
-axios.interceptors.response.use(
+instance.interceptors.request.use(
+  function (config) {
+    config.params = {
+      ...config.params,
+      apikey: envs.apiKey,
+      hash: envs.hash,
+      ts: envs.ts
+    };
+    return config;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
+
+instance.interceptors.response.use(
   function (response) {
     return response;
   },
