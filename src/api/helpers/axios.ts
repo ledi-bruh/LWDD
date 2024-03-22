@@ -1,5 +1,6 @@
 import axios from 'axios';
 import envs from 'config/environments';
+import { Flip, toast } from 'react-toastify';
 
 const instance = axios.create({
   baseURL: envs.baseApiUrl
@@ -25,6 +26,16 @@ instance.interceptors.response.use(
     return response;
   },
   function (error) {
+    toast.error(error.response.data.message, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      theme: 'light',
+      transition: Flip
+    });
     return Promise.reject(error);
   }
 );
