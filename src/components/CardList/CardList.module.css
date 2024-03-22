@@ -7,12 +7,11 @@
   .card {
     border: 1px solid;
     width: 15%;
-    aspect-ratio: 1 / 1.1;
+    aspect-ratio: 1 / 1.25;
     cursor: pointer;
 
     .cardImageContainer {
-      height: 65%;
-      border: 1px solid;
+      height: 70%;
 
       overflow: hidden;
       display: flex;
@@ -27,16 +26,25 @@
 
     .cardInfo {
       padding: 2% 3%;
+      height: 30%;
 
       > h3 {
         color: var(--card-title-color);
         font-weight: bold;
         font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       > p {
         color: var(--card-description-color);
         font-size: 0.6rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1rem;
       }
     }
   }
