@@ -4,6 +4,9 @@ import classes from './CardSearch.module.css';
 import { Card } from '../../types';
 import Search from 'components/Search/Search';
 import CardList from 'components/CardList';
+import CardPagination, {
+  ICardPaginationProps
+} from 'components/CardPagination';
 
 interface ICardSearchProps {
   title: string;
@@ -11,6 +14,7 @@ interface ICardSearchProps {
   cardsCount: number;
   cards: Card[];
   loading: boolean;
+  paginationProps: ICardPaginationProps;
 }
 
 const CardSearch: FC<ICardSearchProps> = ({
@@ -18,7 +22,8 @@ const CardSearch: FC<ICardSearchProps> = ({
   baseUrl,
   cardsCount,
   cards,
-  loading
+  loading,
+  paginationProps
 }) => {
   const navigate = useNavigate();
   const handleCardClick = (card: Card) => {
@@ -41,7 +46,15 @@ const CardSearch: FC<ICardSearchProps> = ({
       <hr />
       {loading ? 'Loading...' : null}
       <CardList cards={cards} handleCardClick={handleCardClick} />
-      {/* pagination */}
+      <hr />
+      {paginationProps.curPage && ( // TODO
+        <CardPagination
+          curPage={paginationProps.curPage}
+          maxPage={paginationProps.maxPage}
+          maxPagesToView={paginationProps.maxPagesToView}
+          handlePageClick={paginationProps.handlePageClick}
+        />
+      )}
     </section>
   );
 };
