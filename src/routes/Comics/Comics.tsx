@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import CardSearch from 'components/CardSearch';
 import { comicsStore } from 'stores/ComicsStore';
@@ -6,12 +6,14 @@ import { Comic } from 'api/types';
 
 const Comics: FC = () => {
   const { comicDataContainer, loading } = comicsStore;
-  const page: number = 0;
-  const limit: number = 10;
+  const [curPage, setCurPage] = useState(1);
+  const limit: number = 12;
+  const maxPage: number = Math.ceil(comicDataContainer.total / limit);
+  const maxPagesToView: number = 7;
 
   useEffect(() => {
-    comicsStore.getPage(limit, page * limit);
-  }, [page]);
+    comicsStore.getPage(limit, (curPage - 1) * limit);
+  }, [curPage]);
 
   return (
     <CardSearch
@@ -27,6 +29,12 @@ const Comics: FC = () => {
         };
       })}
       loading={loading}
+      paginationProps={{
+        curPage: curPage,
+        maxPage: maxPage,
+        maxPagesToView: maxPagesToView,
+        handlePageClick: setCurPage
+      }}
     />
   );
 };
