@@ -6,14 +6,21 @@ import { Character } from 'api/types';
 
 const Characters: FC = () => {
   const { characterDataContainer, loading } = charactersStore;
+
   const [curPage, setCurPage] = useState(1);
-  const limit: number = 10;
+  const limit: number = 12;
   const maxPage: number = Math.ceil(characterDataContainer.total / limit);
   const maxPagesToView: number = 7;
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
-    charactersStore.getPage(limit, (curPage - 1) * limit);
-  }, [curPage]);
+    charactersStore.getPage(
+      limit,
+      (curPage - 1) * limit,
+      searchQuery === '' ? null : searchQuery
+    );
+  }, [curPage, searchQuery]);
 
   return (
     <CardSearch
@@ -29,6 +36,7 @@ const Characters: FC = () => {
         };
       })}
       loading={loading}
+      setSearchQuery={setSearchQuery}
       paginationProps={{
         curPage: curPage,
         maxPage: maxPage,

@@ -14,6 +14,7 @@ interface ICardSearchProps {
   cardsCount: number;
   cards: Card[];
   loading: boolean;
+  setSearchQuery: (value: string) => void;
   paginationProps: ICardPaginationProps;
 }
 
@@ -23,6 +24,7 @@ const CardSearch: FC<ICardSearchProps> = ({
   cardsCount,
   cards,
   loading,
+  setSearchQuery,
   paginationProps
 }) => {
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ const CardSearch: FC<ICardSearchProps> = ({
       <Search
         buttonText={'SEARCH'}
         placeholder={`Search for ${title} by Name`}
+        setSearchQuery={setSearchQuery}
       />
       <hr />
       {loading ? 'Loading...' : null}
