@@ -50,14 +50,7 @@ const CardSearch: FC<ICardSearchProps> = ({
       {loading ? 'Loading...' : null}
       <CardList cards={cards} handleCardClick={handleCardClick} />
       <hr />
-      {paginationProps.curPage && ( // TODO
-        <CardPagination
-          curPage={paginationProps.curPage}
-          maxPage={paginationProps.maxPage}
-          maxPagesToView={paginationProps.maxPagesToView}
-          handlePageClick={paginationProps.handlePageClick}
-        />
-      )}
+      <CardPagination {...paginationProps} />
     </section>
   );
 };
