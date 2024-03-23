@@ -21,7 +21,11 @@ const CardList: FC<ICardListProps> = ({ cards, handleCardClick }) => {
           </div>
           <div className={classes.cardInfo}>
             <h3>{_card.title}</h3>
-            <p>{_card.description}</p>
+            <p>
+              {_card.description === '' || _card.description === null
+                ? 'No description provided'
+                : _card.description}
+            </p>
           </div>
         </div>
       ))}
