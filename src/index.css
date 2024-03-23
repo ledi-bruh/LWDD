@@ -5,6 +5,8 @@
   --header-bg-color: #ed1a3b;
   --footer-bg-color: #555555;
   --search-bg-color: #efad4d;
+  --page-button-bg-color: transparent;
+  --page-button-bg-hover-color: #f6ca54;
 
   --nav-link-color: #ffbe46;
   --active-nav-link-color: #fff646;
@@ -16,6 +18,8 @@
   --search-input-border-color: #cfcfcf;
   --card-title-color: #b5384d;
   --card-description-color: #9f9f9f;
+  --page-button-text-color: #b5384d;
+  --page-button-text-hover-color: #fdf1d1;
 }
 
 * {
