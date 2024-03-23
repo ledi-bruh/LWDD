@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import CardSearch from 'components/CardSearch';
 import { charactersStore } from 'stores/CharactersStore';
@@ -6,12 +6,14 @@ import { Character } from 'api/types';
 
 const Characters: FC = () => {
   const { characterDataContainer, loading } = charactersStore;
-  const page: number = 0;
+  const [curPage, setCurPage] = useState(1);
   const limit: number = 10;
+  const maxPage: number = Math.ceil(characterDataContainer.total / limit);
+  const maxPagesToView: number = 7;
 
   useEffect(() => {
-    charactersStore.getPage(limit, page * limit);
-  }, [page]);
+    charactersStore.getPage(limit, (curPage - 1) * limit);
+  }, [curPage]);
 
   return (
     <CardSearch
@@ -27,6 +29,12 @@ const Characters: FC = () => {
         };
       })}
       loading={loading}
+      paginationProps={{
+        curPage: curPage,
+        maxPage: maxPage,
+        maxPagesToView: maxPagesToView,
+        handlePageClick: setCurPage
+      }}
     />
   );
 };
