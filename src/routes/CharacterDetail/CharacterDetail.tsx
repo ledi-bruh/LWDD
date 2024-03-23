@@ -13,13 +13,13 @@ const CharacterDetail: FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const character = await api.characters.getById(id);
-      const comics = await api.characters.getComics(id);
       setCard({
         id: character.id.toString(),
         image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
         title: character.name,
         description: character.description
       });
+      const comics = await api.characters.getComics(id);
       setSubCards(
         comics.results.map((comic: Comic) => {
           return {
