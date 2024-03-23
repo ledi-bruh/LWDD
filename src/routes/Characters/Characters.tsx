@@ -8,7 +8,7 @@ const Characters: FC = () => {
   const { characterDataContainer, loading } = charactersStore;
 
   const [curPage, setCurPage] = useState(1);
-  const limit: number = 12;
+  const limit: number = 10;
   const maxPage: number = Math.ceil(characterDataContainer.total / limit);
   const maxPagesToView: number = 7;
 

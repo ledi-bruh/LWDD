@@ -7,11 +7,11 @@
     width: 100%;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
 
     > img {
       width: 100%;
+      object-position: 60% 40%;
+      object-fit: cover;
     }
   }
 

@@ -6,9 +6,10 @@
 
   .card {
     border: 1px solid;
-    width: 15%;
+    height: 20rem;
     aspect-ratio: 1 / 1.25;
     cursor: pointer;
+    overflow: hidden;
 
     .cardImageContainer {
       height: 70%;

@@ -8,7 +8,7 @@ const Comics: FC = () => {
   const { comicDataContainer, loading } = comicsStore;
 
   const [curPage, setCurPage] = useState(1);
-  const limit: number = 12;
+  const limit: number = 10;
   const maxPage: number = Math.ceil(comicDataContainer.total / limit);
   const maxPagesToView: number = 7;
 
