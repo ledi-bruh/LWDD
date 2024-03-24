@@ -2,7 +2,7 @@ import { observable, action, makeObservable, runInAction } from 'mobx';
 import api from 'api';
 import { CharacterDataContainer } from 'api/types';
 
-class CharactersStore {
+class CharacterDataContainerStore {
   @observable characterDataContainer: CharacterDataContainer = {
     total: 0,
     results: []
@@ -31,6 +31,27 @@ class CharactersStore {
 
       runInAction(() => {
         this.characterDataContainer = characterDataContainer;
+        this.loading = false;
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      runInAction(() => {
+        this.loading = false;
+      });
+    }
+  };
+
+  @action
+  getByComicId = async (id: string): Promise<void> => {
+    try {
+      this.loading = true;
+
+      const characterDataContainer = await api.comics.getCharacters(id);
+
+      runInAction(() => {
+        this.characterDataContainer = characterDataContainer;
+        this.loading = false;
       });
     } catch (error) {
       console.error(error);
@@ -42,6 +63,6 @@ class CharactersStore {
   };
 }
 
-const charactersStore = new CharactersStore();
+const characterDataContainerStore = new CharacterDataContainerStore();
 
-export { charactersStore };
+export { characterDataContainerStore };
