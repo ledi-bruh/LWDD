@@ -3,7 +3,7 @@ import api from 'api';
 import { Comic } from 'api/types';
 
 class ComicStore {
-  @observable comic: Comic = {} as Comic;
+  @observable comic: Comic | null = null;
 
   @observable loading: boolean = false;
 

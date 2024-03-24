@@ -1,48 +1,46 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import api from 'api';
+import { observer } from 'mobx-react-lite';
+import { characterStore, comicDataContainerStore } from 'stores';
 import CartDetail from 'components/CartDetail';
-import { Card } from 'types';
 import { Comic } from 'api/types';
 
 const CharacterDetail: FC = () => {
   const { id } = useParams() as { id: string };
-  const [card, setCard] = useState({} as Card);
-  const [subCards, setSubCards] = useState([] as Card[]);
+  const { character } = characterStore;
+  const { comicDataContainer, loading } = comicDataContainerStore;
 
   useEffect(() => {
-    const fetchData = async () => {
-      const character = await api.characters.getById(id);
-      setCard({
-        id: character.id.toString(),
-        image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
-        title: character.name,
-        description: character.description
-      });
-      const comics = await api.characters.getComics(id);
-      setSubCards(
-        comics.results.map((comic: Comic) => {
-          return {
-            id: comic.id.toString(),
-            image: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
-            title: comic.title,
-            description: comic.description
-          };
-        })
-      );
-    };
-
-    fetchData();
+    characterStore.getById(id);
+    comicDataContainerStore.getByCharacterId(id);
   }, [id]);
 
-  return (
+  return character === null ? (
+    <div>Character is loading...</div>
+  ) : (
     <CartDetail
-      card={card}
+      card={{
+        id: character!.id.toString(),
+        image: `${character!.thumbnail.path}.${character!.thumbnail.extension}`,
+        title: character!.name,
+        description: character!.description
+      }}
       subCardsTitle={'Comics'}
-      subCards={subCards}
+      subCards={
+        loading
+          ? []
+          : comicDataContainer.results.map((comic: Comic) => {
+              return {
+                id: comic.id.toString(),
+                image: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
+                title: comic.title,
+                description: comic.description
+              };
+            })
+      }
       subCardsUrl={'/comics'}
     />
   );
 };
 
-export default CharacterDetail;
+export default observer(CharacterDetail);

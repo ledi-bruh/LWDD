@@ -3,7 +3,7 @@ import api from 'api';
 import { Character } from 'api/types';
 
 class CharacterStore {
-  @observable character: Character = {} as Character;
+  @observable character: Character | null = null;
 
   @observable loading: boolean = false;
 
