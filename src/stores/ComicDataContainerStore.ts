@@ -3,7 +3,10 @@ import api from 'api';
 import { ComicDataContainer } from 'api/types';
 
 class ComicDataContainerStore {
-  @observable comicDataContainer: ComicDataContainer = {} as ComicDataContainer;
+  @observable comicDataContainer: ComicDataContainer = {
+    total: 0,
+    results: []
+  };
 
   @observable loading: boolean = false;
 
