@@ -1,39 +1,37 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classes from './CardSearch.module.css';
 import { Card } from '../../types';
-import { charactersMock, comicsMock } from 'components/mock';
 import Search from 'components/Search/Search';
 import CardList from 'components/CardList';
+import CardPagination, {
+  ICardPaginationProps
+} from 'components/CardPagination';
 
 interface ICardSearchProps {
   title: string;
   baseUrl: string;
+  cardsCount: number;
+  cards: Card[];
+  loading: boolean;
+  setSearchQuery: (value: string) => void;
+  paginationProps: ICardPaginationProps;
 }
 
-const CardSearch: FC<ICardSearchProps> = ({ title, baseUrl }) => {
+const CardSearch: FC<ICardSearchProps> = ({
+  title,
+  baseUrl,
+  cardsCount,
+  cards,
+  loading,
+  setSearchQuery,
+  paginationProps
+}) => {
   const navigate = useNavigate();
-  const [cards, setCards] = useState([] as Card[]);
-  const cardsCount = cards.length;
-
-  useEffect(() => {
-    let data: Card[] = [];
-    switch (baseUrl) {
-      case '/characters':
-        data = Object.keys(charactersMock).map((key) => charactersMock[key]);
-        break;
-      case '/comics':
-        data = Object.keys(comicsMock).map((key) => comicsMock[key]);
-        break;
-    }
-
-    setCards(data);
-  }, [baseUrl]);
-
   const handleCardClick = (card: Card) => {
     return navigate(`${baseUrl}/${card.id}`, {
       replace: true,
-      state: { card: card }
+      state: { card: card } // ?
     });
   };
 
@@ -46,9 +44,16 @@ const CardSearch: FC<ICardSearchProps> = ({ title, baseUrl }) => {
       <Search
         buttonText={'SEARCH'}
         placeholder={`Search for ${title} by Name`}
+        setSearchQuery={setSearchQuery}
       />
       <hr />
-      <CardList cards={cards} handleCardClick={handleCardClick} />
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <CardList cards={cards} handleCardClick={handleCardClick} />
+      )}
+      <hr />
+      <CardPagination {...paginationProps} />
     </section>
   );
 };

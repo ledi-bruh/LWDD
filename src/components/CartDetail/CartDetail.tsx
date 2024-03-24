@@ -1,42 +1,21 @@
-import { FC, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import classes from './CartDetail.module.css';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '../../types';
-import { charactersMock, comicsMock } from 'components/mock';
+import classes from './CartDetail.module.css';
 
 interface ICartDetailProps {
-  baseUrl: string;
+  card: Card;
   subCardsTitle: string;
+  subCards: Card[];
   subCardsUrl: string;
 }
 
 const CartDetail: FC<ICartDetailProps> = ({
-  baseUrl,
+  card,
   subCardsTitle,
+  subCards,
   subCardsUrl
 }) => {
-  const { id } = useParams();
-  const [card, setCard] = useState({} as Card);
-  const [subCards, setSubCards] = useState([] as Card[]);
-
-  useEffect(() => {
-    let dataCard: Card;
-    let dataSubCards: Card[] = [];
-
-    if (baseUrl === '/characters' && subCardsUrl === '/comics') {
-      dataCard = charactersMock[id as string];
-      dataSubCards = Object.keys(comicsMock).map((key) => comicsMock[key]);
-      setCard(dataCard);
-    } else if (baseUrl === '/comics' && subCardsUrl === '/characters') {
-      dataCard = comicsMock[id as string];
-      dataSubCards = Object.keys(charactersMock).map(
-        (key) => charactersMock[key]
-      );
-      setCard(dataCard);
-    }
-    setSubCards(dataSubCards);
-  }, [id]);
-
   return (
     <section className={classes.cardDetailSection}>
       <div className={classes.cardPreviewContainer}>

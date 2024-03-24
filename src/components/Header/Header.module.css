@@ -1,6 +1,6 @@
 .headerInner {
   background-color: var(--header-bg-color);
-  height: 8vh;
+  min-height: 8vh;
   display: flex;
   justify-content: space-between;
   padding: 2vh 1vw;
