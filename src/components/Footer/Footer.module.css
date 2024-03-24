@@ -1,0 +1,23 @@
+.footerInner {
+  background-color: var(--footer-bg-color);
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 1vw;
+    height: 16vh;
+
+    & > * {
+      width: fit-content;
+    }
+
+    .marvelLogo {
+      height: 10vh;
+    }
+
+    p {
+      color: var(--footer-text-color);
+      font-size: 0.75rem;
+    }
+  }
+}

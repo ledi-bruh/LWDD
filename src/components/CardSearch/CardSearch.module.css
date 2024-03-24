@@ -1,0 +1,25 @@
+.cardsSection {
+  margin: 2vh 2vw;
+
+  .sectionHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    > h2 {
+      margin-right: 0.5rem;
+      font-weight: bold;
+      color: var(--cards-section-title-text-color);
+    }
+
+    > p {
+      font-weight: bold;
+      color: var(--cards-count-text-color);
+    }
+  }
+
+  > hr {
+    margin: 4vh 0;
+    opacity: 15%;
+  }
+}
