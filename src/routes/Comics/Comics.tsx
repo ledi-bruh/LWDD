@@ -1,11 +1,11 @@
 import { FC, useState, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import CardSearch from 'components/CardSearch';
-import { comicsStore } from 'stores/ComicsStore';
+import { comicDataContainerStore } from 'stores';
 import { Comic } from 'api/types';
 
 const Comics: FC = () => {
-  const { comicDataContainer, loading } = comicsStore;
+  const { comicDataContainer, loading } = comicDataContainerStore;
 
   const [curPage, setCurPage] = useState(1);
   const limit: number = 10;
@@ -15,7 +15,7 @@ const Comics: FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    comicsStore.getPage(
+    comicDataContainerStore.getPage(
       limit,
       (curPage - 1) * limit,
       searchQuery === '' ? null : searchQuery
