@@ -22,6 +22,7 @@ const Search: FC<ISearchProps> = ({
   };
 
   useEffect(() => {
+    if (inputValue === '') return;
     handleInput();
   }, [debouncedInputValue]);
 

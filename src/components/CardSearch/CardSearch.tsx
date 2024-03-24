@@ -47,8 +47,11 @@ const CardSearch: FC<ICardSearchProps> = ({
         setSearchQuery={setSearchQuery}
       />
       <hr />
-      {loading ? 'Loading...' : null}
-      <CardList cards={cards} handleCardClick={handleCardClick} />
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <CardList cards={cards} handleCardClick={handleCardClick} />
+      )}
       <hr />
       <CardPagination {...paginationProps} />
     </section>
